@@ -1,25 +1,10 @@
-// import { articles } from "../data";
 import NewsCard from "./NewsCard";
 import Container from "../components/Container";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useContext } from "react";
+import { NewsContext } from "../context/NewsContext";
 
 const NewsContainer = () => {
-  const [articles, setArticles] = useState([]);
-
-  const apiKey = import.meta.env.VITE_REACT_API_KEY;
-
-  const url = `https://api.currentsapi.services/v1/latest-news?apiKey=${apiKey}`;
-  const fetchArticles = async () => {
-    const res = await axios.get(url);
-    const data = await res.data;
-    console.log(data);
-    setArticles(data.news);
-  };
-
-  useEffect(() => {
-    fetchArticles();
-  }, []);
+  const { articles } = useContext(NewsContext);
 
   return (
     <Container>

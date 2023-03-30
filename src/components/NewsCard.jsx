@@ -5,8 +5,8 @@ const NewsCard = ({ article }) => {
   return (
     <Link to={`${article.url}`}>
       <div className="w-full bg-blue-200 rounded-none mb-4">
-        <div className="flex justify-center items-center px-3 overflow-hidden p-3">
-          <div className="mr-5">
+        <div className="flex flex-col md:flex-row justify-center items-center px-3 overflow-hidden p-3">
+          <div className="md:mr-5 mb-6 md:mb-0">
             <img
               src={article?.image ? article.image : news}
               alt="noimage"
